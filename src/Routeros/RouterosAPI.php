@@ -15,7 +15,7 @@
  *
  ******************************/
 
-namespace HelloWorld;
+namespace Routeros;
 
 class RouterosAPI
 {
@@ -59,10 +59,9 @@ class RouterosAPI
 
     /**
      *
+     * @param string $length
      *
-     * @param string        $length
-     *
-     * @return void
+     * @return int|string // PhpStorm fix return value in doc block
      */
     public function encodeLength($length)
     {
@@ -226,10 +225,11 @@ class RouterosAPI
             foreach ($PARSED as $key => $value) {
                 $PARSED[$key] = $this->arrayChangeKeyName($value);
             }
-            return $PARSED;
-            if (empty($PARSED) && !is_null($singlevalue)) {
+            if (empty($PARSED) && !is_null($singlevalue)) { // PhpStorm move code up before return value
                 $PARSED = $singlevalue;
             }
+            return $PARSED;
+
         } else {
             return array();
         }
@@ -277,7 +277,7 @@ class RouterosAPI
             // Read the first byte of input which gives us some or all of the length
             // of the remaining reply.
             $BYTE   = ord(fread($this->socket, 1));
-            $LENGTH = 0;
+            // $LENGTH = 0; PhpStorm fix value is immediately overwritten
             // If the first bit is set then we need to remove the first four bits, shift left 8
             // and then read another byte in.
             // We repeat this for the second and third bits.
