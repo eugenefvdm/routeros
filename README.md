@@ -7,7 +7,7 @@ A fluent interface to the MikroTik RouterOS API.
 
 ## Testing
 
-To test, do this:
+The command below will link to a public router and do ``/interface/getall`` 
 
 ```php
 php tests/main.php 
