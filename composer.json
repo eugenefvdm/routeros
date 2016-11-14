@@ -15,5 +15,6 @@
     "psr-4": {
       "Routeros\\": "src\\Routeros\\"
     }
-  }
+  },
+  "minimum-stability": "stable"
 }
