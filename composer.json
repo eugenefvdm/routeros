@@ -1,7 +1,7 @@
 {
   "name": "eugenevdm/routeros",
   "description": "RouterOS is the operating system of RouterBOARD.",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
     {
