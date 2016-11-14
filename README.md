@@ -5,7 +5,7 @@ A fluent interface to the MikroTik RouterOS API.
 [Changelog](#Changelog) |
 [Links](#Links)
 
-## Testing
+##Testing
 
 To test, do this:
 
@@ -13,11 +13,11 @@ To test, do this:
 php tests/main.php 
 ```
 
-## Changelog
+##Changelog
 
 * Fixed API for PhpStorm to avoid warnings
 
-## Links
+##Links
 
 During the construction of this library various links were followed.
 
