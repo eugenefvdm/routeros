@@ -246,6 +246,7 @@ class RouterosAPI
     public function arrayChangeKeyName(&$array)
     {
         if (is_array($array)) {
+            $array_new = []; // Fix PhpStorm variable not defined warning
             foreach ($array as $k => $v) {
                 $tmp = str_replace("-", "_", $k);
                 $tmp = str_replace("/", "_", $tmp);
