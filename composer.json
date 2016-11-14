@@ -1,20 +1,18 @@
 {
-  "name": "eugenevdm/routeros",
-  "description": "RouterOS is the operating system of RouterBOARD.",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Eugène van der Merwe",
-      "email": "eugenevdm@gmail.com"
-    }
-  ],
-  "require": {
-    "php": ">=5.4.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Routeros\\": "src\\Routeros\\"
-    }
-  },
-  "minimum-stability": "stable"
+    "name": "eugene/routeros",
+    "description": "A fluent interface to the MikroTik RouterOS API.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eugene van der Merwe",
+            "email": "eugenevdm@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Routeros\\": "src\\Routeros\\"
+        }
+    },
+    "minimum-stability": "stable"
 }
