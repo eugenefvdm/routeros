@@ -2,7 +2,7 @@
 
 namespace Routeros;
 
-class Router
+class Routeros
 {
     public static function test()
     {
