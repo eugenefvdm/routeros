@@ -2,9 +2,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php'; // Autoload files using Composer autoload
 
-use Routeros\Router;
+use Routeros\Routeros;
 
-Router::test();
+Routeros::test();
 
 
 

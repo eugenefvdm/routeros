@@ -1,9 +1,30 @@
 # routeros
 A fluent interface to the MikroTik RouterOS API.
 
+[Example Usage](#example-usage) |
 [Testing](#testing) |
 [Changelog](#changelog) |
 [Links](#links)
+
+## Example Usage
+
+```php
+<?php
+
+require_once __DIR__ . '/../../vendor/autoload.php'; // Autoload files using Composer autoload
+
+use Routeros\Routeros;
+
+$api = new Routeros();
+
+$api->debug();
+
+$result = $api->queue()->simple()->pr();
+
+print_r ($result);
+
+echo $api->credentials();
+```
 
 ## Testing
 

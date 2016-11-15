@@ -17,7 +17,7 @@
 
 namespace Routeros;
 
-class RouterosAPI
+class Api
 {
     var $debug     = false; //  Show debug information
     var $connected = false; //  Connection state
