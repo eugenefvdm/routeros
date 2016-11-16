@@ -4,17 +4,19 @@ namespace Routeros;
 
 class Routeros
 {
+    
     private $api;
 
-    private $router, $api_user, $api_password;
+    public $ip_address;
+    private $api_user, $api_password;
 
     public $command;
 
-    function __construct($router = '154.119.54.254', $api_user = 'api', $api_password = 'test') {
+    function __construct($ip_address = '154.119.54.254', $username = 'api', $password = 'test') {
         $this->api = new Api();
-        $this->router = $router;
-        $this->api_user = $api_user;
-        $this->api_password = $api_password;
+        $this->ip_address = $ip_address;
+        $this->username = $username;
+        $this->password = $password;
     }
 
     public static function test()
@@ -47,15 +49,14 @@ class Routeros
 
     public function pr() {
         $this->command .= "/print";
-        if ($this->api->connect($this->router, $this->api_user, $this->api_password)) {
+        $array = [];
+        if ($this->api->connect($this->ip_address, $this->username, $this->password)) {
             $this->api->write($this->command);
             $READ = $this->api->read(false);
-            $ARRAY = $this->api->parseResponse($READ);
-            //print_r($ARRAY);
+            $array = $this->api->parseResponse($READ);
             $this->api->disconnect();
         }
-//        return $this;
-        return $ARRAY;
+        return $array;
     }
 
     public function debug() {
@@ -65,9 +66,9 @@ class Routeros
     public function credentials()
     {
         $credentials = [
-            'router' => $this->router,
-            'api_user' => $this->api_user,
-            'api_password' => $this->api_password
+            'ip_address' => $this->ip_address,
+            'username' => $this->username,
+            'password' => $this->password
         ];
         return json_encode($credentials);
     }
@@ -77,8 +78,8 @@ class Routeros
         return $this;
     }
 
-    public function ping() {
-        return Router::ping('196.25.1.1');
+    public function ping($ip) {
+        return Router::ping($ip);
     }
 
 }
