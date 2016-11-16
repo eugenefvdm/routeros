@@ -72,4 +72,13 @@ class Routeros
         return json_encode($credentials);
     }
 
+    public function router()
+    {
+        return $this;
+    }
+
+    public function ping() {
+        return Router::ping($this->ip);
+    }
+
 }

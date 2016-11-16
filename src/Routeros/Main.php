@@ -5,11 +5,8 @@ require_once __DIR__ . '/../../vendor/autoload.php'; // Autoload files using Com
 use Routeros\Routeros;
 
 $api = new Routeros();
-
 $api->debug();
-
 $result = $api->queue()->simple()->pr();
-
 print_r ($result);
-
 echo $api->credentials();
+echo $api->router()->ping();
