@@ -17,6 +17,7 @@
     "minimum-stability": "stable",
     "require": {
         "eugenevdm/network": "^1.0",
-        "eugenevdm/monitor": "^1.0"
+        "eugenevdm/monitor": "^1.0",
+        "eugenevdm/helpers": "^1.0"
     }
 }
