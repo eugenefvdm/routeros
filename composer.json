@@ -14,5 +14,8 @@
             "Routeros\\": "src\\Routeros\\"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require": {
+        "eugenevdm/network": "^1.0"
+    }
 }

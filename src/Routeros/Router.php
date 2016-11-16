@@ -2,12 +2,14 @@
 
 namespace Routeros;
 
+use Network\Network;
+
 class Router
 {
 
     public static function ping($ip)
     {
-        Network::ping($ip);
+        return Network::ping($ip);
     }
 
 }

@@ -78,7 +78,7 @@ class Routeros
     }
 
     public function ping() {
-        return Router::ping($this->ip);
+        return Router::ping('196.25.1.1');
     }
 
 }
