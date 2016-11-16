@@ -12,10 +12,10 @@ $monitor = new Monitor(); // Initialise monitoring
 
 $monitor->start();
 echo $router->version() . "\n"; // Get router version information (/system/resource/print)
-$monitor->show(); // Display the amount of time it took to get this info
+echo $monitor->show() . "\n"; // Display the amount of time it took to get this info
 
 echo $router->uptime() . "\n"; // Get router uptime information. Uses a saved variable
-$monitor->show(); // Show how much quicker this happened
+echo $monitor->show() . "\n"; // Show how much quicker this happened
 
 echo $router->resource('cpu-load') . "\n"; // An alternative way to get the CPU load
 
