@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../vendor/autoload.php'; // Autoload files using Com
 use Monitor\Monitor;
 use Routeros\Routeros;
 
-$router = new Routeros(); // Create new API instance
+$router = new Routeros(); // Create new API instance 
 //$router->debug(); // Turn on debugging
 
 $monitor = new Monitor(); // Initialise monitoring
