@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php'; // Autoload files using Composer autoload
+require_once __DIR__ . '/vendor/autoload.php'; // Autoload files using Composer autoload
 
 use Monitor\Monitor;
 use Routeros\Routeros;
@@ -10,12 +10,12 @@ $router = new Routeros(); // Create new API instance
 
 $monitor = new Monitor(); // Initialise monitoring
 
-$monitor->start();
+$monitor->time_elapsed();
 echo "Router version: " . $router->version() . "\n"; // Get router version information (/system/resource/print)
-echo "Monitor show: " . $monitor->show() . "\n"; // Display the amount of time it took to get this info
+$monitor->time_elapsed(); // Display the amount of time it took to get this info
 
 echo "Router uptime: " . $router->uptime() . "\n"; // Get router uptime information. Uses a saved variable
-echo "Monitor show: " . $monitor->show() . "\n"; // Show how much quicker this happened
+$monitor->time_elapsed(); // Show how much quicker this happened
 
 echo "CPU Load: " . $router->resource('cpu-load') . "\n"; // An alternative way to get the CPU load
 
