@@ -6,6 +6,11 @@ A fluent interface to the MikroTik RouterOS API.
 [Changelog](#changelog) |
 [Links](#links)
 
+## Installation
+
+### Winbox
+http://myhomelab.blogspot.co.za/2013/05/installing-mikrotik-routeros-under-VirtualBox.html
+
 ## Example Usage
 
 ```php
