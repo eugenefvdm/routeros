@@ -8,8 +8,13 @@ use Routeros\Routeros;
 $nas = new Routeros();
 $nas->add("/radius/add" , array(
     "service" => "ppp",
-    "address" => "192.168.3.51",
+    "address" => "192.168.0.6",
     ));
+
+// Add PPPoE server
+// Add PPPoE client
+// Setup routing
+// Add radius secret
 
 $router = new Routeros(); // Create new API instance
 
