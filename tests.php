@@ -5,7 +5,14 @@ require_once __DIR__ . '/vendor/autoload.php'; // Autoload files using Composer 
 use Monitor\Monitor;
 use Routeros\Routeros;
 
+$nas = new Routeros();
+$nas->add("/radius/add" , array(
+    "service" => "ppp",
+    "address" => "192.168.3.51",
+    ));
+
 $router = new Routeros(); // Create new API instance
+
 //$router->debug(); // Turn on debugging
 
 $monitor = new Monitor(); // Initialise monitoring

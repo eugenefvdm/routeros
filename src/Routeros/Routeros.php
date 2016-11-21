@@ -2,6 +2,8 @@
 
 namespace Routeros;
 
+use Helpers\Helpers;
+
 class Routeros
 {
 
@@ -15,28 +17,30 @@ class Routeros
 
     public $command;
 
-    function __construct($ip_address = '154.119.54.254', $username = 'api', $password = 'test') {
+    function __construct($ip_address = "", $username = "", $password = "") {
         $this->api = new Api();
-        $this->ip_address = $ip_address;
-        $this->username = $username;
-        $this->password = $password;
+        if (!$ip_address) {
+            $config = Helpers::Config('demo');
+            $this->ip_address = $config['ip_address'];
+            $this->username = $config['username'];
+            $this->password = $config['password'];
+        } else {
+            $this->ip_address = $ip_address;
+            $this->username = $username;
+            $this->password = $password;
+        }
     }
 
-    public static function test()
-    {
-
-        $API = new Api();
-
-        $API->debug = true;
-
-        if ($API->connect('154.119.54.254', 'api', 'test')) {
-            $API->write('/interface/getall');
-            $READ = $API->read(false);
-            $ARRAY = $API->parseResponse($READ);
-            print_r($ARRAY);
-            $API->disconnect();
+    public function pr() {
+        $this->command .= "/print";
+        $array = [];
+        if ($this->api->connect($this->ip_address, $this->username, $this->password)) {
+            $this->api->write($this->command);
+            $READ = $this->api->read(false);
+            $array = $this->api->parseResponse($READ);
+            $this->api->disconnect();
         }
-
+        return $array;
     }
 
     public function queue()
@@ -50,16 +54,24 @@ class Routeros
         return $this;
     }
 
-    public function pr() {
-        $this->command .= "/print";
-        $array = [];
-        if ($this->api->connect($this->ip_address, $this->username, $this->password)) {
-            $this->api->write($this->command);
-            $READ = $this->api->read(false);
-            $array = $this->api->parseResponse($READ);
-            $this->api->disconnect();
+    public static function test()
+    {
+
+        $API = new Api();
+
+        $API->debug = true;
+
+        $config = Helpers::Config('nas');
+        //die(print_r($config,1));
+
+        if ($API->connect($config['ip_address'], $config['username'], $config['password'])) {
+            $API->write('/interface/getall');
+            $READ = $API->read(false);
+            $ARRAY = $API->parseResponse($READ);
+            print_r($ARRAY);
+            $API->disconnect();
         }
-        return $array;
+
     }
 
     public function debug() {
@@ -114,8 +126,12 @@ class Routeros
         return $array;
     }
 
-
-
-
+    public function add($command, $args)
+    {
+        if ($this->api->connect($this->ip_address, $this->username, $this->password)) {
+            $this->api->comm($command, $args);
+            $this->api->disconnect();
+        }
+    }
 
 }
